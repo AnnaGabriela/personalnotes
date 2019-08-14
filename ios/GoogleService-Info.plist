@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>855751327731-obf7gj0do3e0qu3p26gd32i12hcpnjem.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.855751327731-obf7gj0do3e0qu3p26gd32i12hcpnjem</string>
+	<key>API_KEY</key>
+	<string>AIzaSyBSk2LzpkryNIG3-pyBC7Mq8FNPdQJPe14</string>
+	<key>GCM_SENDER_ID</key>
+	<string>855751327731</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.annagabriela.personalnotes</string>
+	<key>PROJECT_ID</key>
+	<string>personal-note-a93a7</string>
+	<key>STORAGE_BUCKET</key>
+	<string>personal-note-a93a7.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:855751327731:ios:16c937d0e84d1408</string>
+	<key>DATABASE_URL</key>
+	<string>https://personal-note-a93a7.firebaseio.com</string>
+</dict>
+</plist>

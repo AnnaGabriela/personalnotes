@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "855751327731",
+    "firebase_url": "https://personal-note-a93a7.firebaseio.com",
+    "project_id": "personal-note-a93a7",
+    "storage_bucket": "personal-note-a93a7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:855751327731:android:16c937d0e84d1408",
+        "android_client_info": {
+          "package_name": "com.annagabriela.personalnotes"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "855751327731-3o5f9l71r8r2r0s64t34ighsaq4fi6gq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAjJarD7tGW7MZzcCsCloj4GECSSSmoBOI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "855751327731-3o5f9l71r8r2r0s64t34ighsaq4fi6gq.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "855751327731-obf7gj0do3e0qu3p26gd32i12hcpnjem.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.annagabriela.personalnotes"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
