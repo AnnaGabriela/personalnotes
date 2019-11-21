@@ -27,83 +27,84 @@ class _LoginState extends State<Login> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      resizeToAvoidBottomInset: false,
       body: ModalProgressHUD(
         inAsyncCall: showSpinner,
         child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 50.0),
-          child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    Container(
-                      child: Image.asset('images/logo.png'),
-                      height: 90.0,
-                    ),
-                  ],
-                ),
-                Text('Personal Notes', style: kTitleTextStyle),
-                SizedBox(height: 30.0),
-                TextField(
-                  keyboardType: TextInputType.emailAddress,
-                  onChanged: (value) => email = value,
-                  decoration: kTextInputDecoration.copyWith(
-                      hintText: 'Enter your email'),
-                ),
-                SizedBox(height: 10.0),
-                TextField(
-                  obscureText: true,
-                  onChanged: (value) => password = value,
-                  decoration: kTextInputDecoration.copyWith(
-                      hintText: 'Enter your password'),
-                ),
-                SizedBox(height: 10.0),
-                DropdownButton(
-                  isExpanded: true,
-                  value: titleValue,
-                  onChanged: (String newValue) {
-                    setState(() => titleValue = newValue);
-                  },
-                  items: <String>['Aluno', 'Instituição']
-                      .map<DropdownMenuItem<String>>((String value) {
-                    return DropdownMenuItem<String>(
-                      value: value,
-                      child: Text(value),
-                    );
-                  }).toList(),
-                ),
-                ColoredButton(
-                  text: 'Log In',
-                  onPressed: () async {
-                    setState(() => showSpinner = true);
-                    try {
-                      final user = _auth.signInWithEmailAndPassword(
-                          email: email, password: password);
-                      if (user != null) {
-                        final userInfo = await firebaseMethods.getUserInfo(
-                            user, titleValue, email);
-                        if (userInfo != null) {
-                          if (titleValue == 'Aluno') {
-                            Navigator.pushNamed(context, UserPage.id,
-                                arguments: UserPage(userInfo: userInfo));
+          padding: EdgeInsets.only(left: 50.0, right: 50.0, top: 110.0),
+          child: SingleChildScrollView(
+            child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      Container(
+                        child: Image.asset('images/logo.png'),
+                        height: 90.0,
+                      ),
+                    ],
+                  ),
+                  Text('Personal Notes', style: kTitleTextStyle),
+                  SizedBox(height: 30.0),
+                  TextField(
+                    keyboardType: TextInputType.emailAddress,
+                    onChanged: (value) => email = value,
+                    decoration: kTextInputDecoration.copyWith(
+                        hintText: 'Enter your email'),
+                  ),
+                  SizedBox(height: 10.0),
+                  TextField(
+                    obscureText: true,
+                    onChanged: (value) => password = value,
+                    decoration: kTextInputDecoration.copyWith(
+                        hintText: 'Enter your password'),
+                  ),
+                  SizedBox(height: 10.0),
+                  DropdownButton(
+                    isExpanded: true,
+                    value: titleValue,
+                    onChanged: (String newValue) {
+                      setState(() => titleValue = newValue);
+                    },
+                    items: <String>['Aluno', 'Instituição']
+                        .map<DropdownMenuItem<String>>((String value) {
+                      return DropdownMenuItem<String>(
+                        value: value,
+                        child: Text(value),
+                      );
+                    }).toList(),
+                  ),
+                  ColoredButton(
+                    text: 'Log In',
+                    onPressed: () async {
+                      setState(() => showSpinner = true);
+                      try {
+                        final user = _auth.signInWithEmailAndPassword(
+                            email: email, password: password);
+                        if (user != null) {
+                          final userInfo = await firebaseMethods.getUserInfo(
+                              user, titleValue, email);
+                          if (userInfo != null) {
+                            if (titleValue == 'Aluno') {
+                              Navigator.pushNamed(context, UserPage.id,
+                                  arguments: UserPage(userInfo: userInfo));
+                            } else {
+                              Navigator.pushNamed(context, UserList.id,
+                                  arguments: UserList(userTitle: titleValue));
+                            }
+                            setState(() => showSpinner = false);
                           } else {
-                            Navigator.pushNamed(context, UserList.id,
-                                arguments: UserList(userTitle: titleValue));
+                            setState(() => showSpinner = false);
+                            print("Usuário ou senha inválidos!");
                           }
-                          setState(() => showSpinner = false);
-                        } else {
-                          setState(() => showSpinner = false);
-                          print("Usuário ou senha inválidos!");
                         }
+                      } catch (e) {
+                        print(e);
                       }
-                    } catch (e) {
-                      print(e);
-                    }
-                  },
-                )
-              ]),
+                    },
+                  )
+                ]),
+          ),
         ),
       ),
     );

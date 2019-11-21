@@ -125,11 +125,15 @@ class NotesStream extends StatelessWidget {
           );
         }
         final notes = snapshot.data.documents.first;
-        print(notes.data);
         final notesRef = notes.data["notes"];
+        Widget list = Container(width: 0, height: 0);
+
         getNotes(notesRef).then((notesWidgets) {
-          return Expanded(child: ListView(children: notesWidgets));
+          list = ListView(
+            children: [Text("opa")],
+          );
         });
+        return list;
       },
     );
   }
